@@ -2,7 +2,6 @@ Require Import  Coq.Lists.List.
 Require Import Coq.Init.Nat.
 
 Open Scope nat_scope.
-
 Open Scope list_scope.
 
 Import ListNotations.
