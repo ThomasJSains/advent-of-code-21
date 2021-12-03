@@ -17,24 +17,23 @@ Definition data := [ forward 4 ; forward 6 ; down 8 ; forward 3 ; forward 9 ; do
 
 Fixpoint position (x y : Z) (data : list Direction) :=
     match data with
-    | [] => (x, y)
+    | [] => x * y
     | (forward n) :: l => position (x + n) y l
     | (down n) :: l => position x (y + n) l
     | (up n) :: l => position x (y - n) l
     end.
 
-Definition part1 := match position 0 0 data with (x, y) => x * y end.
+Definition part1 := position 0 0 data.
 
 Fixpoint position_aim (x y aim : Z) (data : list Direction) :=
     match data with
-    | [] => (x, y)
+    | [] => x * y
     | (forward n) :: l => position_aim (x + n) (y + n*aim) aim l
     | (down n) :: l => position_aim x y (aim + n) l
     | (up n) :: l => position_aim x y (aim - n) l
     end.
 
-Definition part2 := match position_aim 0 0 0 data with (x, y) => x * y end.
+Definition part2 := position_aim 0 0 0 data.
 
 Compute part1.
-
 Compute part2.
