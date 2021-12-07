@@ -51,8 +51,10 @@ Fixpoint step (n : nat) (data : LanternFish) :=
         end)
     end.
 
-Definition part1 := step (80%nat) (processData input default_pops).
-Definition part2 := step (256%nat) (processData input default_pops).
+Definition simulate (n : nat) := step n (processData input default_pops).
+
+Definition part1 := simulate 80%nat.
+Definition part2 := simulate 256%nat.
 
 Compute part1.
 Compute part2.
